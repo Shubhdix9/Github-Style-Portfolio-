@@ -1,26 +1,161 @@
 @import "tailwindcss";
 
 :root {
-  --background: #ffffff;
-  --foreground: #171717;
+  --background: #0d1117;
+  --foreground: #c9d1d9;
+  --card-bg: #161b22;
+  --card-border: #30363d;
+  --github-blue: #58a6ff;
+  --github-green: #238636;
+  --github-grey: #8b949e;
+  --github-btn-hover: #21262d;
+  --grid-pattern: rgba(56, 139, 253, 0.04);
 }
 
-@theme inline {
+.light {
+  --background: #f6f8fa;
+  --foreground: #24292f;
+  --card-bg: #ffffff;
+  --card-border: #d0d7de;
+  --github-blue: #0969da;
+  --github-green: #1a7f37;
+  --github-grey: #57606a;
+  --github-btn-hover: #f3f4f6;
+  --grid-pattern: rgba(9, 105, 218, 0.03);
+}
+
+@theme {
   --color-background: var(--background);
   --color-foreground: var(--foreground);
-  --font-sans: var(--font-geist-sans);
-  --font-mono: var(--font-geist-mono);
+  --color-card-bg: var(--card-bg);
+  --color-card-border: var(--card-border);
+  --color-gh-blue: var(--github-blue);
+  --color-gh-green: var(--github-green);
+  --color-gh-grey: var(--github-grey);
+  --color-gh-btn-hover: var(--github-btn-hover);
+  
+  --color-gh-l0: #161b22;
+  --color-gh-l1: #0e4429;
+  --color-gh-l2: #006d32;
+  --color-gh-l3: #26a641;
+  --color-gh-l4: #39d353;
+  
+  --animate-scan: scan 6s linear infinite;
+  --animate-glow: glow 2s ease-in-out infinite alternate;
+  --animate-float: float 6s ease-in-out infinite;
 }
 
-@media (prefers-color-scheme: dark) {
-  :root {
-    --background: #0a0a0a;
-    --foreground: #ededed;
-  }
+@keyframes scan {
+  0% { transform: translateY(-100%); }
+  100% { transform: translateY(100%); }
+}
+
+@keyframes glow {
+  0% { text-shadow: 0 0 5px rgba(88, 166, 255, 0.2), 0 0 10px rgba(88, 166, 255, 0.2); }
+  100% { text-shadow: 0 0 10px rgba(88, 166, 255, 0.6), 0 0 20px rgba(88, 166, 255, 0.4); }
+}
+
+@keyframes float {
+  0%, 100% { transform: translateY(0px); }
+  50% { transform: translateY(-10px); }
 }
 
 body {
-  background: var(--background);
+  background-color: var(--background);
   color: var(--foreground);
-  font-family: Arial, Helvetica, sans-serif;
+  overflow-x: hidden;
+  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", "Noto Sans", Helvetica, Arial, sans-serif, "Apple Color Emoji", "Segoe UI Emoji";
+  transition: background-color 0.3s ease, color 0.3s ease;
+}
+
+/* Custom Scrollbar */
+::-webkit-scrollbar {
+  width: 10px;
+  height: 10px;
+}
+
+::-webkit-scrollbar-track {
+  background: var(--background);
+}
+
+::-webkit-scrollbar-thumb {
+  background: var(--card-border);
+  border-radius: 5px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: var(--github-grey);
+}
+
+/* Custom Selection */
+::selection {
+  background-color: rgba(88, 166, 255, 0.3);
+  color: inherit;
+}
+
+/* Glassmorphism utility */
+.glass {
+  background: rgba(22, 27, 34, 0.7);
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+  border: 1px solid rgba(48, 54, 61, 0.6);
+}
+
+.light .glass {
+  background: rgba(255, 255, 255, 0.7);
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+  border: 1px solid rgba(208, 215, 222, 0.6);
+}
+
+/* Grid overlay background */
+.grid-bg {
+  background-size: 40px 40px;
+  background-image: 
+    linear-gradient(to right, var(--grid-pattern) 1px, transparent 1px),
+    linear-gradient(to bottom, var(--grid-pattern) 1px, transparent 1px);
+}
+
+/* Hide default cursor on desktop if custom cursor is active */
+@media (min-width: 768px) {
+  .custom-cursor-active {
+    cursor: none;
+  }
+  .custom-cursor-active a, 
+  .custom-cursor-active button, 
+  .custom-cursor-active [role="button"] {
+    cursor: none;
+  }
+}
+
+/* Resume PDF Print Styles */
+@media print {
+  body {
+    background: white !important;
+    color: black !important;
+  }
+  
+  /* Hide all screen interface elements */
+  header, footer, aside, nav, canvas, .glass, button, select, input, .no-print {
+    display: none !important;
+    visibility: hidden !important;
+  }
+
+  /* Make the print container fill the page */
+  .print-resume-container {
+    position: absolute;
+    left: 0;
+    top: 0;
+    width: 100%;
+    visibility: visible !important;
+    display: block !important;
+    background: white !important;
+    color: black !important;
+  }
+  
+  .print-resume-container * {
+    visibility: visible !important;
+    color: black !important;
+    border-color: #d0d7de !important;
+  }
 }
