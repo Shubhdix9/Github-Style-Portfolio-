@@ -1,36 +1,64 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+# GitHub-Style Interactive Portfolio 🚀
 
-## Getting Started
+A premium, interactive developer portfolio styled after the GitHub interface. This application showcases projects, contributions, verified achievements, and features a command palette, an AI copilot chat interface, and a print-ready resume.
 
-First, run the development server:
+## 🌟 Features
 
-```bash
-npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
-```
+- **GitHub UI Styling**: Sleek, immersive dark mode mimicking the GitHub dashboard design with pixel-perfect attention to detail.
+- **Interactive Contribution Heatmap**: A custom interactive contributions grid representing project work and activity history.
+- **Verified Achievements & Badges**: Display, share, and celebrate developer milestones (e.g., Star Creator, Quick Responder, Pull Request Champion) with unique rarities, tiers, and cryptographic octocat signatures.
+- **Print-Ready Professional Resume**: Integrated single-sheet printable resume viewer modal, optimized for physical output or PDF generation.
+- **AI Copilot Chat**: An interactive chat assistant interface for visitors to converse with your digital clone.
+- **Command Palette & Terminal**: Quick navigation and controls via an accessible command menu (`Cmd+K` / `Ctrl+K`) and an embedded interactive CLI simulator.
+- **Neural interactive Background**: Premium canvas-based particle network reacting to mouse movements.
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+## 🛠️ Technology Stack
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+- **Framework**: [Next.js 16](https://nextjs.org/) (Turbopack, App Router)
+- **UI & Logic**: [React 19](https://react.dev/), TypeScript
+- **Styling**: [Tailwind CSS 4](https://tailwindcss.com/)
+- **Animations**: [Framer Motion](https://www.framer.com/motion/), [Canvas Confetti](https://github.com/catdad/canvas-confetti)
+- **Icons**: [Lucide React](https://lucide.dev/)
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+## 🚀 Getting Started
 
-## Learn More
+### Prerequisites
 
-To learn more about Next.js, take a look at the following resources:
+Ensure you have [Node.js](https://nodejs.org/) installed (v18+ recommended).
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+### Installation
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
+1. Clone the repository:
+   ```bash
+   git clone https://github.com/Shubhdix9/Github-Style-Portfolio-.git
+   cd Github-Style-Portfolio-
+   ```
 
-## Deploy on Vercel
+2. Install dependencies:
+   ```bash
+   npm install
+   ```
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
+3. Run the development server:
+   ```bash
+   npm run dev
+   ```
 
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+4. Open [http://localhost:3000](http://localhost:3000) in your browser to view the portfolio.
+
+## 📦 Deployment
+
+### Deploy on Vercel
+
+The easiest way to deploy this Next.js app is using the Vercel Platform:
+
+1. Install the Vercel CLI:
+   ```bash
+   npm install -g vercel
+   ```
+2. Deploy directly:
+   ```bash
+   vercel
+   ```
+
+Or connect the repository to your [Vercel Dashboard](https://vercel.com) for automatic continuous deployment on every git push.
